@@ -4,12 +4,16 @@
     <div class="profile-cover-container">
         <img src="{{ asset('images/background/background4.jpg') }}" class="img-fluid" alt="Profile Cover">
     </div>
-    <img src="{{ asset('images/users/' . Auth::user()->profile) }}" class="img-fluid personal-profile-img" alt="Profile Cover">
+    <img src="{{ asset('images/users/' . $user->profile) }}" class="img-fluid personal-profile-img" alt="Profile Cover">
+    <h3 class="ps-4">{{ $user->name }} {{ $user->lastname }}</h3>
     <div class="mt-5">
         @include('posts.alerts')
         @include('posts.errors')
+        @if(count($posts) == 0)
+        <h4 class="text-center"><i class="bi bi-exclamation-circle-fill"></i> Al momento non sono presenti post da questo utente</h4>
+        @endif
         @foreach($posts as $post)
-        <div class="card border-secondary card-container mt-4 mb-4 m-auto">
+        <div class="card border-secondary card-container mt-4 mb-4 m-auto" id="post{{ $post->id }}">
             <div class="d-flex justify-content-between header-post align-items-center">
                 <div class="d-flex gap-3 align-items-center">
                     <img src="{{ asset('images/users/' . $user->profile) }}" class="img-fluid profile-image" alt="User Image" />

@@ -15,6 +15,11 @@ class PostController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
+
+    public function __construct()
+    {
+        $this->middleware('auth');
+    }
     public function index()
     {
         //
@@ -101,8 +106,11 @@ class PostController extends Controller
     {
         $post->delete();
         File::delete(public_path('images/posts/' . $post->image));
-        $user = User::find(Auth::user()->id);
-        $posts = $user->posts()->with('comments.user')->get();
-        return redirect()->route('users.show', ['success' => 'Post eliminato con successo', 'user' => $user, 'posts' => $posts]);
+        if (Auth::user()->id != 1) {
+            $user = User::find(Auth::user()->id);
+            $posts = $user->posts()->with('comments.user')->get();
+            return redirect()->route('users.show', ['success' => 'Post eliminato con successo', 'user' => $user, 'posts' => $posts]);
+        }
+        return redirect()->route('admin.index', ['success' => 'Post eliminato con successo', 'users' => User::all(), 'posts' => Post::all()]);
     }
 }

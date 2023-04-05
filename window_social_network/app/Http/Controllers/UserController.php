@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Models\User;
+use App\Models\Post;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Hash;
 use Illuminate\Support\Facades\Auth;
@@ -15,9 +16,23 @@ class UserController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
+
+    public function __construct()
+    {
+        $this->middleware('auth');
+    }
     public function index()
     {
         //
+    }
+
+    public function logout(Request $request)
+    {
+        Auth::logout();
+        $request->session()->invalidate();
+        $request->session()->regenerateToken();
+
+        return redirect('/login');
     }
 
     public function search(Request $request)
@@ -68,7 +83,10 @@ class UserController extends Controller
      */
     public function edit(User $user)
     {
-        return view('users.edit', ['user' => $user]);
+        if (Auth::user()->id == $user->id) {
+            return view('users.edit', ['user' => $user]);
+        }
+        return redirect()->route('home');
     }
 
     /**
@@ -119,8 +137,13 @@ class UserController extends Controller
      */
     public function destroy(User $user)
     {
-        // $user->delete();
-        // File::delete(public_path('images/users/' . $user->profile));
-        // return redirect()->route();
+        $deletingUser = $user->id;
+        $user->delete();
+        File::delete(public_path('images/users/' . $user->profile));
+        if (Auth::user()->id == $deletingUser) {
+            Auth::logout();
+            return redirect('/login');
+        }
+        return redirect()->route('admin.index', ['success' => 'Utente eliminato con successo', 'users' => User::all(), 'posts' => Post::all()]);
     }
 }

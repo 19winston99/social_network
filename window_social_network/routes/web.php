@@ -15,8 +15,10 @@ use Illuminate\Support\Facades\Auth;
 */
 
 Route::get('/', function () {
-    return view('/home');
-});
+    return view('auth.login');
+})->middleware('guest');;
+
+
 
 Auth::routes();
 
@@ -26,3 +28,5 @@ Route::view('/terms&conditions', 'terms');
 Route::get('/search', [App\Http\Controllers\UserController::class, 'search']);
 Route::resource('/users', App\Http\Controllers\UserController::class);
 Route::resource('/posts', App\Http\Controllers\PostController::class);
+Route::post('logout', [App\Http\Controllers\UserController::class, 'logout'])->name('logout');
+Route::resource('/admin', App\Http\Controllers\AdminController::class);
