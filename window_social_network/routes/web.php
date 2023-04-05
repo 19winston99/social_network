@@ -23,7 +23,6 @@ Auth::routes();
 Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
 
 Route::view('/terms&conditions', 'terms');
-
 Route::get('/search', [App\Http\Controllers\UserController::class, 'search']);
 Route::resource('/users', App\Http\Controllers\UserController::class);
 Route::resource('/posts', App\Http\Controllers\PostController::class);
