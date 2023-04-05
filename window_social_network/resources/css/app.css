@@ -1,0 +1,146 @@
+@import url("https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.3/font/bootstrap-icons.css");
+
+.sidebar {
+    position: fixed;
+    width: 200px;
+    height: 100%;
+    overflow-x: hidden;
+    padding: 1em;
+    background: url('../../public/images/background/background.jpg');
+    background-position: -16px -177px;
+    background-size: cover;
+}
+
+body {
+    background-color: #f3f3f3 !important;
+}
+
+.hover:hover {
+    background-color: #343a40;
+}
+
+.sidebar img {
+    border-radius: 50%;
+    width: 10em;
+    height: 10em;
+    object-fit: cover;
+    border: 5px solid;
+    animation: changeBorder 5s infinite alternate linear;
+}
+
+@keyframes changeBorder {
+    0% {
+        border-color: #ee6055;
+    }
+
+    25% {
+        border-color: #60d394;
+    }
+
+    50% {
+        border-color: #aaf683;
+    }
+
+    75% {
+        border-color: #ffd97d;
+    }
+
+    100% {
+        border-color: #ff9b85;
+    }
+}
+
+.terms-conditions {
+    margin: 0 auto;
+    width: 50em;
+}
+
+.terms-conditions p {
+    text-align: justify;
+}
+
+.background-register {
+    background: url('../../public/images/background/background2.jpg');
+    background-position: center;
+    background-size: cover;
+    background-repeat: no-repeat;
+}
+
+.background-login {
+    background: url('../../public/images/background/background3.jpg');
+    background-position: center;
+    background-size: cover;
+    background-repeat: no-repeat;
+}
+
+.input-register-color {
+    background-color: #d1d1d1;
+    border: 1px solid darkgrey;
+}
+
+.img-user-list {
+    border-radius: 50%;
+    width: 4em;
+    height: 4em;
+    object-fit: cover;
+}
+
+.user-list-container:hover {
+    background-color: lightgrey;
+}
+
+.profile-cover-container {
+    height: 14em;
+    overflow: hidden;
+}
+
+.personal-profile-img {
+    border-radius: 50%;
+    width: 10em;
+    height: 10em;
+    object-fit: cover;
+    border: 5px solid black;
+    z-index: 3;
+    position: absolute;
+    top: 30%;
+    left: 50%;
+    transform: translateX(-50%);
+}
+
+.card-container {
+    width: 39em;
+}
+
+.profile-image {
+    border-radius: 50%;
+    width: 3em;
+    height: 3em;
+    object-fit: cover;
+}
+
+.header-post {
+    padding: 1em;
+    border-bottom: 1px solid grey;
+}
+
+.comment-container {
+    margin-left: 1em;
+}
+
+.comment-container small {
+    padding-left: 2.8em;
+}
+
+.comment-image-user {
+    border-radius: 50%;
+    width: 2em;
+    height: 2em;
+    object-fit: cover;
+}
+
+.personal-information {
+    border: 2px solid lightgrey;
+    padding: 1em;
+    border-radius: 14px;
+    width: 22em;
+}
