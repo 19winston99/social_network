@@ -1,6 +1,6 @@
 @extends('layouts.app')
 @section('content')
-<div class="m-auto w-50">
+<div class="m-auto w-50 list-container mb-3">
     @foreach($users as $user)
     <a href="/users/{{ $user->id }}" class="nav-link">
         <div class="d-flex align-items-center gap-4 user-list-container p-2">

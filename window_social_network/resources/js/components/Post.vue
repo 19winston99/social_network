@@ -132,6 +132,12 @@ export default {
 </template>
 
 <style>
+@media screen and (max-width: 900px) {
+    .card-container {
+    width: auto !important;
+  }
+}
+
 .card-container {
   width: 39em;
 }

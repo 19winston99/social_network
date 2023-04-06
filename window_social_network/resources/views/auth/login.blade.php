@@ -4,7 +4,7 @@
 <div class="container">
     <div class="row justify-content-center">
         <div class="col-md-8">
-            <div class="card background-login mt-5">
+            <div class="card background-login mt-3">
                 <div class="d-flex gap-5 align-items-center border-bottom border-white ps-2">
                 <a class="btn btn-link nav-link" href="{{ route('register') }}">Non hai un account? Registrati</a>
                     <div class="card-header text mt-1">{{ __('Accedi a Window') }}</div>

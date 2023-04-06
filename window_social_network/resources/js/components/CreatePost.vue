@@ -97,6 +97,20 @@ export default {
 </template>
 
 <style>
+@media screen and (max-width: 700px) {
+    .post-container{
+        /* background: #d9d7d7; */
+        padding: 1em;
+        width: auto !important;
+        box-shadow: 0px 0px 2px black;
+        background: url("../../../public/images/background/background2.jpg");
+        background-position: center;
+        background-size: cover;
+        background-repeat: no-repeat;
+      }
+      
+} 
+
 .post-container {
   /* background: #d9d7d7; */
   padding: 1em;

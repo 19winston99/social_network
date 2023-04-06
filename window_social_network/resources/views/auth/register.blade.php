@@ -4,7 +4,7 @@
 <div class="container">
     <div class="row justify-content-center">
         <div class="col-md-8">
-            <div class="card background-register">
+            <div class="card background-register mb-3">
                 <div class="card-header m-auto">{{ __('Benvenuto a Window') }}</div>
 
                 <div class="card-body">

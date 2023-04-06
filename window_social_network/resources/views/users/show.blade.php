@@ -1,12 +1,12 @@
 @extends('layouts.app')
 @section('content')
-<div class="m-auto w-50">
+<div class="m-auto w-50 personal-area">
     <div class="profile-cover-container">
         <img src="{{ asset('images/background/background4.jpg') }}" class="img-fluid" alt="Profile Cover">
+        <img src="{{ asset('images/users/' . $user->profile) }}" class="img-fluid personal-profile-img" alt="Profile Cover">
     </div>
-    <img src="{{ asset('images/users/' . $user->profile) }}" class="img-fluid personal-profile-img" alt="Profile Cover">
-    <h3 class="ps-4">{{ $user->name }} {{ $user->lastname }}</h3>
-    <div class="mt-5">
+    <h3 class="text-center mt-2">{{ $user->name }} {{ $user->lastname }}</h3>
+    <div class="mt-3 personal-post">
         @include('posts.alerts')
         @include('posts.errors')
         @if(count($posts) == 0)

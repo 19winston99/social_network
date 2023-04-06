@@ -1,6 +1,6 @@
 @extends('layouts.app')
 @section('content')
-<div class="m-auto w-50">
+<div class="m-auto w-50 edit-container">
     @if(Auth::user()->id == $user->id)
     <h5>Modifica i tuoi dati</h5>
     <div class="personal-information">

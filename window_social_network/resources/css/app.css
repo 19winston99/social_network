@@ -29,6 +29,12 @@
 
 body {
     background-color: #f3f3f3 !important;
+    display: flex;
+    flex-direction: column;
+}
+
+main {
+    min-height: 100vh;
 }
 
 .hover:hover {
@@ -68,29 +74,28 @@ body {
 
 @keyframes changeBackground {
     0% {
-       background-color: #ee6055;
+        background-color: #ee6055;
     }
 
     25% {
-       background-color: #60d394;
+        background-color: #60d394;
     }
 
     50% {
-       background-color: #aaf683;
+        background-color: #aaf683;
     }
 
     75% {
-       background-color: #ffd97d;
+        background-color: #ffd97d;
     }
 
     100% {
-       background-color: #ff9b85;
+        background-color: #ff9b85;
     }
 }
 
 
 .terms-conditions {
-    margin: 0 auto;
     width: 50em;
 }
 
@@ -131,6 +136,7 @@ body {
 .profile-cover-container {
     height: 14em;
     overflow: hidden;
+    position: relative;
 }
 
 .personal-profile-img {
@@ -141,9 +147,9 @@ body {
     border: 5px solid black;
     z-index: 3;
     position: absolute;
-    top: 30%;
+    top: 50%;
     left: 50%;
-    transform: translateX(-50%);
+    transform: translate(-50%, -50%);
 }
 
 .card-container {
@@ -182,4 +188,69 @@ body {
     padding: 1em;
     border-radius: 14px;
     width: 22em;
+}
+
+.footer-text {
+    text-align: justify;
+}
+
+@media screen and (max-width: 700px) {
+    .post-container {
+        /* background: #d9d7d7; */
+        padding: 1em;
+        box-shadow: 0px 0px 2px black;
+        background: url("../../../public/images/background/background2.jpg");
+        background-position: center;
+        background-size: cover;
+        background-repeat: no-repeat;
+    }
+
+    .terms-conditions {
+        width: auto !important;
+    }
+
+    .personal-information {
+        border: 2px solid lightgrey;
+        padding: 1em;
+        border-radius: 14px;
+        width: 20em;
+    }
+
+    .list-container {
+        width: auto !important;
+    }
+
+}
+
+@media screen and (max-width: 900px) {
+    main {
+        min-height: 100vh;
+        padding: 0 1em;
+    }
+}
+
+@media screen and (max-width: 1000px) {
+    .sidebar {
+        display: none;
+    }
+
+    .personal-area {
+        width: auto !important;
+    }
+
+    .card-container {
+        width: auto !important;
+    }
+
+    .edit-container {
+        width: auto !important;
+    }
+}
+
+@media screen and (max-width: 1024px) {
+
+    .terms-conditions {
+        width: 35em;
+    }
+
 }

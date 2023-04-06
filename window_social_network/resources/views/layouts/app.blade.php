@@ -75,6 +75,7 @@
         @endauth
         <main class="mt-4">
             @yield('content')
+            @extends('layouts.footer')
         </main>
     </div>
 </body>
