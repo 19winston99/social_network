@@ -67,6 +67,7 @@
         </nav>
         @auth
         <div class="sidebar">
+            <div class="rainbow-line"></div>
             <div class="profile-container mt-4">
                 <img src="{{ asset('images/users/'. Auth::user()->profile) }}" alt="Profile Image" class="mt-4 ms-2">
             </div>

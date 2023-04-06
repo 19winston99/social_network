@@ -4,11 +4,27 @@
     position: fixed;
     width: 200px;
     height: 100%;
+    overflow-y: hidden;
     overflow-x: hidden;
-    padding: 1em;
+    padding: 0 1em 1em 1em;
     background: url('../../public/images/background/background.jpg');
     background-position: -16px -177px;
     background-size: cover;
+}
+
+.rainbow-line {
+    width: 0.5em;
+    height: 100%;
+    margin: 0 auto;
+    animation: changeBackground 5s infinite alternate linear;
+
+}
+
+.profile-container {
+    position: absolute;
+    top: 0;
+    left: 50%;
+    transform: translateX(-50%);
 }
 
 body {
@@ -49,6 +65,29 @@ body {
         border-color: #ff9b85;
     }
 }
+
+@keyframes changeBackground {
+    0% {
+       background-color: #ee6055;
+    }
+
+    25% {
+       background-color: #60d394;
+    }
+
+    50% {
+       background-color: #aaf683;
+    }
+
+    75% {
+       background-color: #ffd97d;
+    }
+
+    100% {
+       background-color: #ff9b85;
+    }
+}
+
 
 .terms-conditions {
     margin: 0 auto;
