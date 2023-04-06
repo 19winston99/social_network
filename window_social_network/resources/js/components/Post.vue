@@ -58,6 +58,7 @@ export default {
             post_id: this.id,
             user: this.user,
           });
+          this.commentContent = "";
         });
     },
   },

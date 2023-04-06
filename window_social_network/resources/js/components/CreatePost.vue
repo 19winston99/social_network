@@ -33,6 +33,9 @@ export default {
               comments: this.comments
             });
           }
+          this.title = "";
+          this.description = "";
+          this.image = "";
         });
       }
     },
