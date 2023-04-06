@@ -8,6 +8,7 @@ export default {
       errorTitle: "",
       errorDescription: "",
       errorImage: "",
+      comments: [],
     };
   },
   methods: {
@@ -29,6 +30,7 @@ export default {
               image: response.data.image,
               id: response.data.id,
               user: this.user,
+              comments: this.comments
             });
           }
         });
