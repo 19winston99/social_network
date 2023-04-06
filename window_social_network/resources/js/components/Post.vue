@@ -61,6 +61,13 @@ export default {
           this.commentContent = "";
         });
     },
+    deleteComment(commentId) {
+      axios.delete('/api/comments/' + commentId).then(response => {
+        if (response.data.success) {
+          this.$emit("deletedComment", commentId);
+        }
+      })
+    }
   },
   computed: {
     classObject() {
@@ -69,6 +76,7 @@ export default {
       };
     },
   },
+  emits: ['deletedComment']
 };
 </script>
 
@@ -125,6 +133,7 @@ export default {
           class="comment-image-user"
         />
         <p class="m-0">{{ comment.user.name }} {{ comment.user.lastname }}</p>
+        <button @click="deleteComment(comment.id)" class="btn btn-sm btn-danfer">Delete</button>
       </div>
       <small>{{ comment.content }}</small>
       <hr />
