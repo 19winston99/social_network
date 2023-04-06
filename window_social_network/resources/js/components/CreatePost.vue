@@ -41,9 +41,9 @@ export default {
   computed: {
     classError() {
       return {
-        error: this.errorTitle || this.errorDescription || this.errorImage
-      }
-    }
+        error: this.errorTitle || this.errorDescription || this.errorImage,
+      };
+    },
   },
   emits: ["create-post"],
   props: ["user"],
@@ -98,10 +98,14 @@ export default {
 
 <style>
 .post-container {
-  background: #d9d7d7;
+  /* background: #d9d7d7; */
   padding: 1em;
   width: 39em;
   box-shadow: 0px 0px 2px black;
+  background: url("../../../public/images/background/background2.jpg");
+  background-position: center;
+  background-size: cover;
+  background-repeat: no-repeat;
 }
 
 .post-container label {
