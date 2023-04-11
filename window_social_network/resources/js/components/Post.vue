@@ -11,12 +11,15 @@ export default {
     "image",
     "liked",
     "comments",
+    "creatorId"
   ],
   data() {
     return {
       like: this.liked,
       disabled: false,
       commentContent: "",
+      commentId : "",
+      commentsState: this.comments,
     };
   },
   methods: {
@@ -52,21 +55,26 @@ export default {
           my_content: this.commentContent,
         })
         .then((response) => {
-          this.comments.push({
+          this.commentsState.push({
             user_id: this.user.id,
             content: this.commentContent,
             post_id: this.id,
             user: this.user,
+            id: response.data.id
           });
+          console.log(this.comments);
           this.commentContent = "";
         });
     },
     deleteComment(commentId) {
       axios.delete('/api/comments/' + commentId).then(response => {
         if (response.data.success) {
-          this.$emit("deletedComment", commentId);
+          this.filterComment(commentId);
         }
       })
+    },
+    filterComment(commentId) {
+      this.commentsState = this.commentsState.filter(el => el.id !== commentId);
     }
   },
   computed: {
@@ -76,18 +84,17 @@ export default {
       };
     },
   },
-  emits: ['deletedComment']
 };
 </script>
 
 <template>
   <div class="card border-secondary card-container">
     <div class="d-flex gap-3 header-post align-items-center">
-      <img
+      <a :href="'/users/' + creatorId"><img
         :src="'images/users/' + userImage"
         class="img-fluid profile-image"
         alt="User Image"
-      />
+      /></a>
       <h5 class="mb-0">{{ userName }} {{ userLastname }}</h5>
     </div>
     <p class="mb-2 p-2">{{ title }}</p>
@@ -123,7 +130,7 @@ export default {
     </div>
     <hr />
     <div
-      v-for="comment in comments"
+      v-for="comment in commentsState"
       :key="comment.id"
       class="comment-container"
     >

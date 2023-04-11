@@ -27,12 +27,12 @@ class CommentController extends Controller
     public function store(Request $request)
     {
         $request->validate(['my_content' => 'required', 'user_id' => 'required', 'post_id' => 'required']);
-        Comment::create([
+        $comment = Comment::create([
             'content' => $request->my_content,
             'user_id' => $request->user_id,
             'post_id' => $request->post_id
         ]);
-        return ['success' => 'Commento creato con successo'];
+        return ['success' => 'Commento creato con successo', 'id' => $comment->id];
     }
 
     /**

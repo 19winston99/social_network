@@ -22,9 +22,6 @@ export default {
       this.posts.reverse();
       this.added = true;
     },
-    filterComment(commentId) {
-      this.comments = this.comments.fiter(el => el.id !== commentId);
-    }
   },
   mounted() {
     this.getPosts();
@@ -55,9 +52,9 @@ export default {
         :userLastname="post.user.lastname"
         :user="userObject"
         :userImage="post.user.profile"
+        :creatorId="post.user.id"
         :liked="post.liked"
         :comments="post.comments"
-        @deletedComment="filterComment"
       ></post>
     </template>
     <template v-else>
