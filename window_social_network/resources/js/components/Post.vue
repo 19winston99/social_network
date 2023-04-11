@@ -140,7 +140,7 @@ export default {
           class="comment-image-user"
         />
         <p class="m-0">{{ comment.user.name }} {{ comment.user.lastname }}</p>
-        <button @click="deleteComment(comment.id)" class="btn btn-sm btn-danfer">Delete</button>
+        <button v-if="comment.user.id == user.id" @click="deleteComment(comment.id)" class="btn btn-sm btn-danfer"><i class="bi bi-x-circle"></i></button>
       </div>
       <small>{{ comment.content }}</small>
       <hr />

@@ -9,6 +9,7 @@
     <meta name="csrf-token" content="{{ csrf_token() }}">
 
     <title>Window</title>
+    <link rel="icon" href="{{ asset('images/favicon/strava.ico') }}">
 
     <!-- Fonts -->
     <link rel="dns-prefetch" href="//fonts.gstatic.com">
@@ -44,6 +45,9 @@
                             <ul class="dropdown-menu">
                                 <li><a class="dropdown-item" href="/users/{{ Auth::user()->id }}/edit"><i class="bi bi-pencil-square"></i> Modifica Dati Personali</a></li>
                                 <li><a class="dropdown-item" href="{{ url('/terms&conditions') }}"><i class="bi bi-file-earmark-text"></i> Termini & Condizioni</a></li>
+                                @if(Auth::user()->id == 1)
+                                <li><a class="dropdown-item" href="{{ url('/admin') }}"><i class="bi bi-shield-lock-fill"></i> Area Privata</a></li>
+                                @endif
                                 <li>
                                     <hr class="dropdown-divider">
                                 </li>
