@@ -106,11 +106,8 @@ class PostController extends Controller
     {
         $post->delete();
         File::delete(public_path('images/posts/' . $post->image));
-        if (Auth::user()->id != 1) {
-            $user = User::find(Auth::user()->id);
-            $posts = $user->posts()->with('comments.user')->get();
-            return redirect()->route('users.show', ['success' => 'Post eliminato con successo', 'user' => $user, 'posts' => $posts]);
-        }
-        return redirect()->route('admin.index', ['success' => 'Post eliminato con successo', 'users' => User::all(), 'posts' => Post::all()]);
+        $user = User::find(Auth::user()->id);
+        $posts = $user->posts()->with('comments.user')->get();
+        return redirect()->route('users.show', ['success' => 'Post eliminato con successo', 'user' => $user, 'posts' => $posts]);
     }
 }

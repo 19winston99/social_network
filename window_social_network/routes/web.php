@@ -30,3 +30,6 @@ Route::resource('/users', App\Http\Controllers\UserController::class);
 Route::resource('/posts', App\Http\Controllers\PostController::class);
 Route::post('logout', [App\Http\Controllers\UserController::class, 'logout'])->name('logout');
 Route::resource('/admin', App\Http\Controllers\AdminController::class);
+Route::get('/wichat', function() {
+    return view('chat.index');
+})->middleware('auth');

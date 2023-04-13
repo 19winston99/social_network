@@ -36,6 +36,7 @@ export default {
           this.title = "";
           this.description = "";
           this.image = "";
+          this.$refs.inputFile.value = null;
         });
       }
     },
@@ -91,6 +92,7 @@ export default {
         @change="onFileSelected"
         class="form-control form-control-sm"
         id="file"
+        ref="inputFile"
         required
       />
       <small :class="classError">{{ errorImage }}</small>

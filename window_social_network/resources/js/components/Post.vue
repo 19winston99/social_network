@@ -11,14 +11,14 @@ export default {
     "image",
     "liked",
     "comments",
-    "creatorId"
+    "creatorId",
   ],
   data() {
     return {
       like: this.liked,
       disabled: false,
       commentContent: "",
-      commentId : "",
+      commentId: "",
       commentsState: this.comments,
     };
   },
@@ -60,22 +60,24 @@ export default {
             content: this.commentContent,
             post_id: this.id,
             user: this.user,
-            id: response.data.id
+            id: response.data.id,
           });
           console.log(this.comments);
           this.commentContent = "";
         });
     },
     deleteComment(commentId) {
-      axios.delete('/api/comments/' + commentId).then(response => {
+      axios.delete("/api/comments/" + commentId).then((response) => {
         if (response.data.success) {
           this.filterComment(commentId);
         }
-      })
+      });
     },
     filterComment(commentId) {
-      this.commentsState = this.commentsState.filter(el => el.id !== commentId);
-    }
+      this.commentsState = this.commentsState.filter(
+        (el) => el.id !== commentId
+      );
+    },
   },
   computed: {
     classObject() {
@@ -90,10 +92,11 @@ export default {
 <template>
   <div class="card border-secondary card-container">
     <div class="d-flex gap-3 header-post align-items-center">
-      <a :href="'/users/' + creatorId"><img
-        :src="'images/users/' + userImage"
-        class="img-fluid profile-image"
-        alt="User Image"
+      <a :href="'/users/' + creatorId"
+        ><img
+          :src="'images/users/' + userImage"
+          class="img-fluid profile-image"
+          alt="User Image"
       /></a>
       <h5 class="mb-0">{{ userName }} {{ userLastname }}</h5>
     </div>
@@ -140,7 +143,13 @@ export default {
           class="comment-image-user"
         />
         <p class="m-0">{{ comment.user.name }} {{ comment.user.lastname }}</p>
-        <button v-if="comment.user.id == user.id" @click="deleteComment(comment.id)" class="btn btn-sm btn-danfer"><i class="bi bi-x-circle"></i></button>
+        <button
+          v-if="comment.user.id == user.id"
+          @click="deleteComment(comment.id)"
+          class="btn btn-sm"
+        >
+          <i class="bi bi-x-circle"></i>
+        </button>
       </div>
       <small>{{ comment.content }}</small>
       <hr />
@@ -150,7 +159,7 @@ export default {
 
 <style>
 @media screen and (max-width: 900px) {
-    .card-container {
+  .card-container {
     width: auto !important;
   }
 }

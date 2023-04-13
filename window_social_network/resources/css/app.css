@@ -94,6 +94,15 @@ main {
     }
 }
 
+.span {
+    display: inline-block;
+    animation: flip 2s infinite;
+    animation-delay: calc(0.2s * var(--x));
+}
+
+@keyframes flip {
+    0%, 80% {transform: rotateY(360deg);}
+}
 
 .terms-conditions {
     width: 50em;

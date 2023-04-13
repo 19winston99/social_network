@@ -37,6 +37,9 @@
                         <li class="nav-item">
                             <a class="nav-link active text-white hover" href="/users/{{ Auth::user()->id }}"><i class="bi bi-person-circle"></i> {{ Auth::user()->name }} {{ Auth::user()->lastname }}</a>
                         </li>
+                        <li class="nav-item">
+                            <a class="nav-link text-white hover" href="{{ url('/wichat') }}"><i class="bi bi-chat-square-dots-fill"></i> <span class="span" style="--x:1">W</span><span class="span" style="--x:2">I</span><span class="span" style="--x:3">C</span><span class="span" style="--x:4">H</span><span class="span" style="--x:5">A</span><span class="span" style="--x:6">T</span></a>
+                        </li>
                         <li class="nav-item dropdown">
                             <a class="nav-link dropdown-toggle text-white hover" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
                                 <i class="bi bi-gear-wide-connected"></i>
@@ -46,7 +49,7 @@
                                 <li><a class="dropdown-item" href="/users/{{ Auth::user()->id }}/edit"><i class="bi bi-pencil-square"></i> Modifica Dati Personali</a></li>
                                 <li><a class="dropdown-item" href="{{ url('/terms&conditions') }}"><i class="bi bi-file-earmark-text"></i> Termini & Condizioni</a></li>
                                 @if(Auth::user()->id == 1)
-                                <li><a class="dropdown-item" href="{{ url('/admin') }}"><i class="bi bi-shield-lock-fill"></i> Area Privata</a></li>
+                                <li><a class="dropdown-item" href="{{ url('/admin') }}"><i class="bi bi-shield-lock-fill"></i> Area Riservata</a></li>
                                 @endif
                                 <li>
                                     <hr class="dropdown-divider">
