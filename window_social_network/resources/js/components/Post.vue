@@ -105,8 +105,7 @@ export default {
       :src="'images/posts/' + image"
       class="card-img-top"
       alt="Post Image"
-      @dblclick="likePost"
-    />
+      @dblclick="!like ? likePost() : disLike()">
     <div class="card-body">
       <button
         v-if="!like"

@@ -20,9 +20,6 @@ export default {
         .then((response) => {
           this.messages = response.data;
         });
-      setInterval(() => {
-        this.getMessages();
-      }, 3 * 60 * 1000);
     },
     sendMessage() {
       if (this.messageContent || this.image) {
@@ -77,6 +74,9 @@ export default {
   },
   mounted() {
     this.getMessages();
+    setInterval(() => {
+      this.getMessages();
+    }, 5000);
   },
 };
 </script>
