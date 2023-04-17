@@ -131,12 +131,14 @@ export default {
         v-model="messageContent"
         class="form-control input"
         placeholder="Type your message here"
+        @keydown.enter="sendMessage"
       />
       <input
         type="file"
         @change="onFileSelected"
         class="form-control form-control-sm file"
         ref="inputFile"
+        @keydown.enter="sendMessage"
       />
       <button class="btn btn-sm" @click="$refs.inputFile.click()">
         <i class="bi bi-paperclip"></i>

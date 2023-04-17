@@ -1,11 +1,11 @@
 -- phpMyAdmin SQL Dump
--- version 5.2.0
+-- version 5.2.1
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Creato il: Apr 06, 2023 alle 21:56
--- Versione del server: 10.4.27-MariaDB
--- Versione PHP: 8.2.0
+-- Creato il: Apr 17, 2023 alle 22:42
+-- Versione del server: 10.4.28-MariaDB
+-- Versione PHP: 8.2.4
 
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
 START TRANSACTION;
@@ -108,6 +108,33 @@ INSERT INTO `likes` (`id`, `user_id`, `post_id`, `created_at`, `updated_at`) VAL
 -- --------------------------------------------------------
 
 --
+-- Struttura della tabella `messages`
+--
+
+CREATE TABLE `messages` (
+  `id` bigint(20) UNSIGNED NOT NULL,
+  `sender_user_id` bigint(20) UNSIGNED NOT NULL,
+  `recipient_user_id` bigint(20) UNSIGNED NOT NULL,
+  `body` text DEFAULT NULL,
+  `image` varchar(255) DEFAULT NULL,
+  `created_at` timestamp NULL DEFAULT NULL,
+  `updated_at` timestamp NULL DEFAULT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
+
+--
+-- Dump dei dati per la tabella `messages`
+--
+
+INSERT INTO `messages` (`id`, `sender_user_id`, `recipient_user_id`, `body`, `image`, `created_at`, `updated_at`) VALUES
+(1, 1, 2, 'Ciao Sara :)', NULL, '2023-04-17 18:39:59', '2023-04-17 18:39:59'),
+(2, 2, 1, 'Hei Robi, tutto bene?', NULL, NULL, NULL),
+(3, 1, 2, 'Bene grazie, e te?', NULL, '2023-04-17 18:41:00', '2023-04-17 18:41:00'),
+(4, 2, 1, 'Si si tutto bene', NULL, NULL, NULL),
+(5, 1, 1, 'Messaggio di promemoria: ore 14.00 andare dal veterinario', NULL, '2023-04-17 18:41:55', '2023-04-17 18:41:55');
+
+-- --------------------------------------------------------
+
+--
 -- Struttura della tabella `migrations`
 --
 
@@ -128,7 +155,8 @@ INSERT INTO `migrations` (`id`, `migration`, `batch`) VALUES
 (4, '2019_12_14_000001_create_personal_access_tokens_table', 1),
 (5, '2023_03_29_184920_create_posts_table', 1),
 (6, '2023_03_31_163901_create_likes_table', 1),
-(7, '2023_04_02_173313_create_comments_table', 1);
+(7, '2023_04_02_173313_create_comments_table', 1),
+(8, '2023_04_10_204331_create_messages_table', 2);
 
 -- --------------------------------------------------------
 
@@ -254,6 +282,14 @@ ALTER TABLE `likes`
   ADD KEY `likes_post_id_foreign` (`post_id`);
 
 --
+-- Indici per le tabelle `messages`
+--
+ALTER TABLE `messages`
+  ADD PRIMARY KEY (`id`),
+  ADD KEY `messages_sender_user_id_foreign` (`sender_user_id`),
+  ADD KEY `messages_recipient_user_id_foreign` (`recipient_user_id`);
+
+--
 -- Indici per le tabelle `migrations`
 --
 ALTER TABLE `migrations`
@@ -310,10 +346,16 @@ ALTER TABLE `likes`
   MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=18;
 
 --
+-- AUTO_INCREMENT per la tabella `messages`
+--
+ALTER TABLE `messages`
+  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=6;
+
+--
 -- AUTO_INCREMENT per la tabella `migrations`
 --
 ALTER TABLE `migrations`
-  MODIFY `id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=8;
+  MODIFY `id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=9;
 
 --
 -- AUTO_INCREMENT per la tabella `personal_access_tokens`
@@ -350,6 +392,13 @@ ALTER TABLE `comments`
 ALTER TABLE `likes`
   ADD CONSTRAINT `likes_post_id_foreign` FOREIGN KEY (`post_id`) REFERENCES `posts` (`id`) ON DELETE CASCADE,
   ADD CONSTRAINT `likes_user_id_foreign` FOREIGN KEY (`user_id`) REFERENCES `users` (`id`) ON DELETE CASCADE;
+
+--
+-- Limiti per la tabella `messages`
+--
+ALTER TABLE `messages`
+  ADD CONSTRAINT `messages_recipient_user_id_foreign` FOREIGN KEY (`recipient_user_id`) REFERENCES `users` (`id`) ON DELETE CASCADE,
+  ADD CONSTRAINT `messages_sender_user_id_foreign` FOREIGN KEY (`sender_user_id`) REFERENCES `users` (`id`) ON DELETE CASCADE;
 
 --
 -- Limiti per la tabella `posts`
