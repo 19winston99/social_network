@@ -16,4 +16,4 @@ Ulteriori informazioni per un esperienza migliore:
 2. Prova la funzionalità " double click " per poter mettere il like senza dover premere direttamente sul pulsante.
 Ti basterà cliccare due volte sulla foto del post.
 
-PROVA WICHAT, LA PIATTAFORMA DI MESSAGGISTICA CREATA APPOSITAMENTO PER WINDOW SOCIAL NETWORK!
+PROVA WICHAT, LA PIATTAFORMA DI MESSAGGISTICA CREATA APPOSITAMENTE PER WINDOW SOCIAL NETWORK!
