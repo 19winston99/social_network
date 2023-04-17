@@ -15,8 +15,8 @@ return new class extends Migration
     {
         Schema::create('messages', function (Blueprint $table) {
             $table->id();
-            $table->foreignId('sender_user_id')->constrained('users')->onDelete('cascade');
-            $table->foreignId('recipient_user_id')->constrained('users')->onDelete('cascade');
+            $table->foreignId('sender_user_id')->constrained('users')->onDelete('cascade')->onUpdate('cascade');
+            $table->foreignId('recipient_user_id')->constrained('users')->onDelete('cascade')->onUpdate('cascade');
             $table->text('body')->nullable();
             $table->string('image')->nullable();
             $table->timestamps();
