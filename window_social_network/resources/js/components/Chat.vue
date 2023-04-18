@@ -34,13 +34,13 @@ export default {
         }
         axios.post("api/messages/", formData).then((response) => {
           if (response.data.success) {
-            this.messages.push({
-              sender_user_id: this.userAuth.id,
-              recipient_user_id: this.userSelected.id,
-              body: this.messageContent ? this.messageContent : null,
-              image: response.data.image,
-              id: response.data.id,
-            });
+            // this.messages.push({
+            //   sender_user_id: this.userAuth.id,
+            //   recipient_user_id: this.userSelected.id,
+            //   body: this.messageContent ? this.messageContent : null,
+            //   image: response.data.image,
+            //   id: response.data.id,
+            // });
             this.messageContent = "";
             this.image = null;
             this.$refs.inputFile.value = null;
@@ -73,10 +73,10 @@ export default {
     },
   },
   mounted() {
+    window.Echo.private("chat").listen("NewMessage", (data) => {
+      this.messages.push(data.message);
+    });
     this.getMessages();
-    setInterval(() => {
-      this.getMessages();
-    }, 5000);
   },
 };
 </script>
