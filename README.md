@@ -16,4 +16,12 @@ Ulteriori informazioni per un esperienza migliore:
 2. Prova la funzionalità " double click " per poter mettere il like senza dover premere direttamente sul pulsante.
 Ti basterà cliccare due volte sulla foto del post.
 
-PROVA WICHAT, LA PIATTAFORMA DI MESSAGGISTICA CREATA APPOSITAMENTE PER WINDOW SOCIAL NETWORK!
+Wichat, la piattaforma di messaggistica real time:
+    - accedere con un utente (es. admin) all'interno del sito
+    - aprire un altra finestra di navigazione in incognito ed accedere con un altro utente (email: perry@gmail.com password: asdasdasd)
+
+Se dovessero risultare degli errori inserire i seguenti comandi:
+    - composer require pusher/pusher-php-server
+    - npm install --save-dev laravel-echo pusher-js
+    - php artisan serve
+    - npm run dev
