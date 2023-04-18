@@ -24,15 +24,23 @@ export default {
           class="img-fluid profile-image"
           alt="User Image"
         />
-        <p class="mb-1">
-          {{ user.name }} {{ user.lastname }}
-        </p>
+        <p class="mb-1">{{ user.name }} {{ user.lastname }}</p>
       </div>
     </div>
   </div>
 </template>
 
 <style>
+@media screen and (max-width: 700px) {
+  .users-container {
+    display: flex;
+    overflow-x: scroll;
+    padding: 0.5em;
+    margin-bottom: 1em;
+    width: 20em !important;
+  }
+}
+
 .users-container {
   display: flex;
   overflow-x: scroll;

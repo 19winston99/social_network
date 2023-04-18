@@ -151,6 +151,11 @@ export default {
 </template>
 
 <style>
+@media screen and (max-width: 700px) {
+  .chat-container {
+    width: auto !important;
+  }
+}
 .text {
   text-align: start;
   color: white;
