@@ -32,13 +32,6 @@ export default {
 </script>
 
 <template>
-  <!-- <div class="warning">
-    <i class="bi bi-exclamation-octagon-fill"></i>
-    <h5 class="text-center">
-      La chat per device con schermo inferiore ai
-      700px è ancora in fase di elaborazione... stay tuned!
-    </h5>
-  </div> -->
   <div class="main-container">
     <users-list
       :users="usersContainer"
@@ -59,22 +52,5 @@ export default {
   justify-content: center;
   align-items: center;
   flex-direction: column;
-}
-@media screen and (max-width: 700px) {
-  /* .main-container {
-    display: none;
-  } */
-  .warning {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    flex-direction: column;
-  }
-}
-
-@media screen and (min-width: 700px) {
-  .warning {
-    display: none;
-  }
 }
 </style>
