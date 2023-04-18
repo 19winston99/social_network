@@ -5,6 +5,20 @@ Azioni preliminari prima di avviare il sito:
     - composer i
     - npm i
 3. Importare le tabelle presenti nella cartella "sql_tables" all'interno di mySql. Il database utilizzato è denominato window_db.
+4. All'interno del vostro file .env inserire le seguenti istruzioni per far si che la chat possa funzionare in tempo reale:
+    (da linea 46 a linea 52)
+
+    PUSHER_APP_ID=1585787
+    PUSHER_APP_KEY=ad7a2f78b1b8b3ce340c
+    PUSHER_APP_SECRET=d7402f033d18c9bcb7ac
+    PUSHER_HOST=
+    PUSHER_PORT=443
+    PUSHER_SCHEME=https
+    PUSHER_APP_CLUSTER=eu
+
+    (linea 18)
+
+    BROADCAST_DRIVER=pusher
 
 Ulteriori informazioni per un esperienza migliore:
 
