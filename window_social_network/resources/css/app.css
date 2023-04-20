@@ -140,6 +140,7 @@ main {
 
 .user-list-container:hover {
     background-color: lightgrey;
+    transform: scale(0.99);
 }
 
 .profile-cover-container {
